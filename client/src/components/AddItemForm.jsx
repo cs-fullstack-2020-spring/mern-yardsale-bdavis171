@@ -21,7 +21,7 @@ class AddItemForm extends Component {
             this.setState({ name: event.target.value });
         }
         else if (event.target.name === 'price') {
-            this.setState({ price: event.target.price });
+            this.setState({ price: event.target.value });
         }
         else if (event.target.name === 'description') {
             this.setState({ description: event.target.value });
