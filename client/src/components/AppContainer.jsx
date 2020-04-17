@@ -17,44 +17,48 @@ class AppContainer extends Component {
     }
 
     // load data
-    loadData = async() => {
+    loadData = async () => {
         let response = await fetch('/api');
         let json = await response.json();
         console.table(json);
-        this.setState({itemList: json});
+        this.setState({ itemList: json });
     }
 
     render() {
         return (
             <div>
-               <h1 id="header">Yard Sale App</h1>
+                <h1 id="header">Yard Sale App</h1>
                 <Router>
                     <Link to='/'>List of Items</Link>
                     <Link to='/api'>Add Item</Link>
                     <Route path='/api'>
                         <AddItemForm/>
                     </Route>
-                </Router>
-                <div>
-                {this.state.itemList.map(
+                    {this.state.itemList.map(
                         (item) => {
                             return (
-                                <Router key = {item._id}>
-                                    <Link to = {`/${item.name}`}>
+                                <div key = {item._id}>
+                                    <Link to={`/api/${item.name}`}>
                                         <div>
                                             <p>{item.name}</p>
                                             <p>Price: ${item.price}</p>
                                         </div>
                                     </Link>
-                                    <Route path={`/${item.name}`}>
-                                        <DisplayItem item={item}/>
+                                    <Route path={`/api/${item.name}`}>
+                                        <DisplayItem item={item} />
                                     </Route>
-                                </Router>
+                                    <br/>
+                                </div>
+
                             )
                         }
                     )}
-                </div>
+                   
+                </Router>
             </div>
+
+
+
         );
     }
 }

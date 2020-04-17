@@ -5,12 +5,25 @@ class DisplayItem extends Component {
         super(props);
         this.state = {  }
     }
+
+    // handle delete
+    handleDelete = async (event) => {
+        let response = await fetch(`/api/${this.props.item.name}`  , {
+            method: "DELETE",
+            headers: {
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            }
+
+        })
+    }
+
     render() { 
         
         return ( 
             <div>
-               
-                
+               <p>{this.props.item.description}</p>
+               <button onClick={this.handleDelete}>Delete</button>
             </div>
          );
     }
