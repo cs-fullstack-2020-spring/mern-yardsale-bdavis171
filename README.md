@@ -1,5 +1,10 @@
 # Full CRUD Yard Sale Application
 
+#### Backend : Complete
+#### Frontend : Complete
+#### Score : 5/5
+#### Would have liked to see yo tackle the routing a little better
+
 We will be building a fullstack MERN (*M*ongo,*E*xpress,*R*eact,*N*ode) application for managing items for a yard sell.
 
 Our item model needs to include the following properties:
